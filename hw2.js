@@ -1,7 +1,7 @@
 // HW1
 // Есть массив ['Капуста', 'Репа', 'Редиска', 'Морковка']. Надо вывести в консоль строку
 // 'Капуста | Репа | Редиска | Морковка';
-let arr = ['Капуста', 'Репа', 'Редиска', 'Морковка'].join("|")
+let arr = ['Капуста', 'Репа', 'Редиска', 'Морковка'].join(" | ")
 console.log(arr)
 
 // HW2
@@ -10,18 +10,13 @@ const strings = String("Вася;Петя;Вова;Олег");
 const newArr = strings.split(';')
 console.log(newArr)
 
-//HW3
+// HW3
 // Напишите функцию hello2(), которая при вызове будет принимать переменную
 // (в аргументы) name (например, «Василий») и выводить строку (в нашем случае «Привет, Василий»).
 // В случае отсутствующего аргумента выводить «Привет, гость»
-const hello2 = (param) => {
-    if (param = param) {
-        return "Привет " + param
-    } else {
-        return "Привет, гость"
-    }
+function hello2(name="гость") {
+    console.log("Привет, " + name)
 };
-console.log(hello2())
 
 // HW4
 // Есть массив ['яблоко', 'ананас', 'груша']
@@ -29,43 +24,43 @@ console.log(hello2())
 // и получить результат (новый массив) в новую переменную.
 let arr = ["яблоко", "ананас", "груша"];
 
-arr = arr.map(function (item) {
+let arr2 = arr.map(function (item) {
     return item.toUpperCase();
 });
-console.log(arr);
+console.log(arr2);
 
 // HW5
 // Написать функцию addOneForAll, которая может принять
 // неограниченное кол-во аргументов.
-// Добавить к каждому аргументу 1 и вернуть новый массив с новыми
-// значениями.
+// Добавить к каждому аргументу 1 и вернуть новый массив с новыми значениями.
 // Пример:
 // передал в массив такие числа - 1, 2, 3, 4
 // функция добавляет к каждму числу + 1
 // функция возвращает новый массив, в котором новые значения
 
-let addOneForAll = (...item) => {
+function addOneForAll(...item) {
+    let arr = []
     for (let i = 0; i < item.length; i++) {
-        item[i]++;
+        arr[i] = item[i]+1;
     }
-    return item;
+    return arr;
 };
-const val = addOneForAll(1, 2, 3, 4);
-console.log(val);
+
+console.log(addOneForAll(1, 2, 3, 4));
 
 // HW6
 // Написать функцию getSum, которая может принять неограниченное
 // кол-во аргументов и возвращает их сумму.
 
-let getSum = (...item) => {
+function getSum(...item) {
     let sum = 0;
     for (let i = 0; i < item.length; i++) {
         sum += item[i];
     }
+    return sum
 }
 
-const val = getSum(1, 2, 3, 4);
-console.log(val);
+console.log(getSum(1, 2, 3, 4));
 
 // HW7
 // Есть массив [1, 'hello', 2, 3, 4, '5', '6', 7, null]. Отфильтровать
@@ -83,9 +78,9 @@ console.log(numberArray)
 // и если оно есть, то возвращаем из функции строку 'Нашли true значение',
 // если его нет - 'Ничего нет'
 
-let arrayTesting = (array) => {
+function arrayTesting(array) {
     for (let i = 0; i < array.length; i++) {
-        if (array[i] == true) {
+        if (array[i] === true) {
             return "Нашли true значение";
         }
     }

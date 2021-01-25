@@ -22,9 +22,7 @@ const obj = {
     name: 'Danissimo'
 };
 
-const bindFunc2 = bindFunc(func2, obj);
-console.log(bindFunc2)
-bindFunc2()
+bindFunc(func2, obj);
 
 // 2
 // Написать функцию, которая не принимает никаких аргументов.
@@ -32,15 +30,16 @@ bindFunc2()
 // (значения ключей должны быть больше нуля) из переданного контекста.
 // Обращаться к objectA напрямую нельзя :)
 
-const func = function () {
+function func() {
     let sum = 0
-    for (const key in this) {
+    for (let key in this) {
         if (this[key] > 0) {
             sum += this[key]
         }
     }
     return sum
 }
+
 const objectA = {
     a: 1,
     b: 2,
@@ -59,24 +58,23 @@ const result = func.call(objectA)
 // во второй аргумент map - arr.map(() => {}, this);
 
 function getNewArray() {
-    console.log(this)
-    let newKey;
-    for (let key in this) {
-        if (key === "values") {
-            newKey = this[key].filter(function (item) {
-                return (
-                    typeof item === "number" && item % 2 === 0 && item > 2 && item < 10
-                );
-            });
-        } else {
-            newKey = "Не найдено";
+    if (!"values" in this) {
+        console.log("Не найдено");
+        return;
+    }
+    console.log(this.values)
+
+    let arr2 = [];
+    for (let i = 0; i < this.values.length; i++) {
+        if (this.values[i]%2==0 && this.values[i]<10 && this.values[i]>2) {
+            arr2.push(this.values[i]);
         }
     }
-    return newKey;
+    return arr2;
 }
 
 const valObject0 = {
-    values: ["2", 2, 4, 8, 3, 10, null, false]
+    "values": [1, '2', 4, 8, '8', 3, 10, null, false]
 };
 
 const result = getNewArray.call(valObject0);
