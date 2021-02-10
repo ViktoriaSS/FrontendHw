@@ -141,4 +141,46 @@ console.log(arrs.getUnique());
 // метод getKeySum, который найдет сумму значений всех ключей, которые true.
 // метод reversKey который поменяет местами key и value (ключ и значение)
 // Пример Был объект {a: 1, b: 2}.reversKey() -> стало {1: 'b', 2: 'a'}
+// getsum
+
+const obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: undefined
+};
+
+Object.prototype.getSum = function () {
+    let sum = 0;
+    const arr = Object.values(this).filter(item => item);
+    arr.forEach(element => {
+        sum += element
+    });
+    return sum;
+};
+
+console.log(obj.getSum());
+
+//reversekey
+
+const obj = {
+    a: 1,
+    b: 2,
+    c: 3,
+    d: undefined
+};
+
+Object.prototype.reversKey = function () {
+    for (const [key, value] of Object.entries(this)) {
+        this[value] = key;
+        delete this[key];
+    }
+}
+
+obj.reversKey()
+console.log(obj)
+
+
+
+
 
