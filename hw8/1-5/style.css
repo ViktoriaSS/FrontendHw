@@ -1,0 +1,11 @@
+.image {
+    width: 100px;
+    height: 100px;
+}
+
+a > span {
+    text-decoration: none;
+    font-size: 0.8em;
+    opacity: 0.5;
+    color: #000
+}

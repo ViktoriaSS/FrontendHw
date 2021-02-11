@@ -1,0 +1,14 @@
+#circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: red;
+    width: 5em;
+    height: 5em;
+    top: 50px
+}
+
+#button {
+    border: rgb(222,184,135);
+    background-color: rgb(222,184,135);
+    border-radius: 10px;
+}
