@@ -1,0 +1,17 @@
+#cardArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cards {
+    margin: 50px;
+    display: flex;
+    width: 100px;
+    height: 380px;
+}
+
+#descriptions {
+    width: 200px;
+    text-align: center;
+}
